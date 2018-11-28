@@ -2,6 +2,18 @@
 import requests
 
 
+def view_cookies(target_host):
+    print("\n----------------------------------")
+    r = requests.get(target_host)
+    data = r.cookies
+    r.close()
+    print("Cookies:")
+    for i, cookie in enumerate(data):
+        print(str(i+1) + ".", str(cookie)[8:-1])
+    print("----------------------------------")
+    return data
+
+
 def int_input_getter(prompt, num_range):
     """
     This function takes a prompt and displays it until the user chooses a valid option.
@@ -28,26 +40,27 @@ def int_input_getter(prompt, num_range):
 
 def get_target():
     while True:
-        address = input("Enter target URL: ")
+        address = input("Enter target URL: ").strip()
         try:
             r = requests.get(address)
         except requests.exceptions.MissingSchema:
             print("Invalid URL!")
         else:
+            r.close()
             print("Target set to: " + address)
             break
     return address
 
 
-menu = """
+print("""
 '|| '||'  '|'         '||                   ||    .   
  '|. '|.  .'    ....   || ...  ... ... ... ...  .||.  
   ||  ||  |   .|...||  ||'  ||  ||  ||  |   ||   ||   
    ||| |||    ||       ||    |   ||| |||    ||   ||   
     |   |      '|...'  '|...'     |   |    .||.  '|.' 
-                                                  
-Created by: Nick Lueth                                                      
 
+Created by: Nick Lueth""")
+menu = """
 1. Set target host
 2. View cookies
 3. Edit cookies
@@ -55,11 +68,21 @@ Created by: Nick Lueth
 5. Exit
 """
 target = ""
-user_choice = int_input_getter(menu, range(1, 6))
-if user_choice == 1:
-    target = get_target()
-else:
-    exit(0)
+cookie_data = None
+target_selected = False
+while True:
+    user_choice = int_input_getter(menu, range(1, 6))
+    if user_choice == 1:
+        target = get_target()
+        target_selected = True
+    elif user_choice == 2:
+        if target_selected is True:
+            cookie_data = view_cookies(target)
+        else:
+            print("No target selected!")
+
+    else:
+        exit(0)
 # Program plan:
 # Start with cool ASCII Art of title. (THIS IS A MUST)
 # Display menu
