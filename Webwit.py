@@ -2,7 +2,7 @@
 # Webwit is a final project for CSI-160-01
 
 import requests
-# import curl
+# import pycurl
 # import thread
 # import time
 
