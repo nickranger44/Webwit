@@ -1,14 +1,27 @@
-# Import requests
+# Created By: Nick Lueth
+# Webwit is a final project for CSI-160-01
+
 import requests
+# import curl
+# import thread
+# import time
 
 
 def view_cookies(target_host):
+    """
+    This function connects to the target host and views the cookie data of that site.
+    :param target_host: (string) url of the website
+    :return: (class) all of the cookie data
+    """
+    # TODO: Find a way to include session cookies.
     print("\n----------------------------------")
     r = requests.get(target_host)
     data = r.cookies
+    print(type(data))
     r.close()
     print("Cookies:")
     for i, cookie in enumerate(data):
+        # parse the cookie data to clean up the out put a little.
         print(str(i+1) + ".", str(cookie)[8:-1])
     print("----------------------------------")
     return data
@@ -39,13 +52,20 @@ def int_input_getter(prompt, num_range):
 
 
 def get_target():
+    """
+    This function helps to set the target host.
+    :return: (string) The address of the target
+    """
     while True:
+        # The strip is added just in case extra white space is added
         address = input("Enter target URL: ").strip()
         try:
+            # See if the address can be accessed
             r = requests.get(address)
         except requests.exceptions.MissingSchema:
             print("Invalid URL!")
         else:
+            # Since we only opened the url to see if it works we just close it afterwards.
             r.close()
             print("Target set to: " + address)
             break
@@ -95,9 +115,20 @@ while True:
 
 # For 1: Set target_host equal to a valid IP address or link
 
-# For 2: View all of the cookies of the website using cookiejar or something of the sort
+# For 2: View all of the cookies of the website using the request cookiejar or something of the sort
 
 # For 3: Using curl module or something make post request using a handcrafted value for a cookie
 
 # For 4: Take in a password file, or username file, login page path, host IP/domain name, port, fail text, allow
 # for multi-threading
+# I will offer these options for the login cracker. (Not exactly this order)
+# 1. Select word list
+# 2. Select port
+# 3. Select fail string
+# 4. Set username
+# 5. Set request format
+# 6. Set path
+# 7. Set threads
+# 8. Set form data
+
+# At this point I don't know what all of my functions will be so I'm keeping what I have right now for this update.
