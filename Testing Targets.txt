@@ -1,1 +1,2 @@
+For cookie editing:
 http://40.76.33.15:9001/
