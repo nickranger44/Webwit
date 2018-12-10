@@ -1,2 +1,2 @@
-For cookie editing:
+Web server provided by Perdue's B01ler CTF team:
 http://40.76.33.15:9001/
