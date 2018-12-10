@@ -1,7 +1,9 @@
 # Created By: Nick Lueth
 # Webwit is a final project for CSI-160-01
 # Resources:
+# https://dbader.org/blog/how-to-make-command-line-commands-with-python
 
+#!/usr/bin/env python
 import requests
 import InputGetter
 
