@@ -1,8 +1,9 @@
 # Created By: Nick Lueth
 # Webwit is a final project for CSI-160-01
+# Resources:
 
 import requests
-# import pycurl
+# import curl
 # import thread
 # import time
 
@@ -13,15 +14,14 @@ def view_cookies(target_host):
     :param target_host: (string) url of the website
     :return: (class) all of the cookie data
     """
-    # TODO: Find a way to include session cookies.
     print("\n----------------------------------")
     r = requests.get(target_host)
     data = r.cookies
-    print(type(data))
     r.close()
     print("Cookies:")
     for i, cookie in enumerate(data):
         # parse the cookie data to clean up the out put a little.
+        cookies.append(str(cookie)[8:-1])
         print(str(i+1) + ".", str(cookie)[8:-1])
     print("----------------------------------")
     return data
@@ -72,6 +72,20 @@ def get_target():
     return address
 
 
+def edit_cookie(host):
+    view_cookies(target)
+    while True:
+        index = int_input_getter("Which cookie would you like to edit?: ", range(1, len(cookies)+1))
+        cookie_name = cookies[index - 1][:cookies[index - 1].index("=")]
+        print("Chosen cookie:", cookie_name)
+        new_value = input("What do want to change that cookie's value to?: ")
+        break
+    cookie = {cookie_name: new_value}
+    r = requests.post(host, cookies=cookie)
+    print(str(r.content).replace('<', "\n<"))
+    r.close()
+
+
 print("""
 '|| '||'  '|'         '||                   ||    .   
  '|. '|.  .'    ....   || ...  ... ... ... ...  .||.  
@@ -84,12 +98,14 @@ menu = """
 1. Set target host
 2. View cookies
 3. Edit cookies
-4. Craft login crack
+4. View web page
 5. Exit
 """
 target = ""
 cookie_data = None
 target_selected = False
+cookies = []
+website_saves = {}
 while True:
     user_choice = int_input_getter(menu, range(1, 6))
     if user_choice == 1:
@@ -98,6 +114,11 @@ while True:
     elif user_choice == 2:
         if target_selected is True:
             cookie_data = view_cookies(target)
+        else:
+            print("No target selected!")
+    elif user_choice == 3:
+        if target_selected is True:
+            edit_cookie(target)
         else:
             print("No target selected!")
 
