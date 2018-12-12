@@ -1,6 +1,9 @@
 # Created By: Nick Lueth
 # Date: 12/12/2018
 # Webwit is a final project for CSI-160-01
+# --------------------------------------------------------
+# PLEASE DO NOT USE THIS CODE AND CLIAM IT TO BE YOUR OWN!
+# --------------------------------------------------------
 # Resources:
 # https://dbader.org/blog/how-to-make-command-line-commands-with-python
 # https://stackoverflow.com/questions/30362391/how-do-you-find-the-first-key-in-a-dictionary
