@@ -88,7 +88,6 @@ def convert_entry(choice, fname):
     f = open(fname, "r+")
     # Search through the file
     for i, line in enumerate(f):
-        print(line[:-1])
         # Once the script finds the entry that the user wants then it evaluates the string to dictionary
         if i == choice - 1:
             f.close()
