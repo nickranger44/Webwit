@@ -2,7 +2,7 @@
 # Date: 12/12/2018
 # Webwit is a final project for CSI-160-01
 # --------------------------------------------------------
-# PLEASE DO NOT USE THIS CODE AND CLIAM IT TO BE YOUR OWN!
+# PLEASE DO NOT USE THIS CODE AND CLAIM IT TO BE YOUR OWN!
 # --------------------------------------------------------
 # Resources:
 # https://dbader.org/blog/how-to-make-command-line-commands-with-python
