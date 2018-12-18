@@ -14,6 +14,6 @@ Installation steps:
 
 Usage steps:
 1. Open up terminal and change your directory to the location of Webwit.py
-2. cd ~/Desktop/Webwit/
+2. ```cd ~/Desktop/Webwit-master/```
 3. Type ```python3 Webwit.py```
 4. Enjoy!
