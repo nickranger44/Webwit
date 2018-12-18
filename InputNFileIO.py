@@ -67,7 +67,10 @@ def load_from_file(fname):
     print("Saved websites:")
     # Prints a numbered list of all websites and their cookie data
     for i, line in enumerate(f):
-        print(str(i+1) + ".", line[:-1])
+        # Assigns the website name as the key value of the dictionary
+        website_name = list(eval(line[:-1]).keys())[0]
+        # Print numbered list of the websites in the file
+        print(str(i+1) + ".", website_name)
         count += 1
     # Close the file
     f.close()
