@@ -1,6 +1,6 @@
-#WELCOME TO WEBWIT!
+# WELCOME TO WEBWIT!
 
-##Webwit is currently a website cookie manipulating tool that will be turned in as a final project for CSI-160-01.
+## Webwit is currently a website cookie manipulating tool that will be turned in as a final project for CSI-160-01.
 
 Installation steps:
 1. Open up terminal and type in the following command
