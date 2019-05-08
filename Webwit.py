@@ -1,6 +1,5 @@
 # Created By: Nick Lueth
 # Date: 12/12/2018
-# Webwit is a final project for CSI-160-01
 # --------------------------------------------------------
 # PLEASE DO NOT USE THIS CODE AND CLAIM IT TO BE YOUR OWN!
 # --------------------------------------------------------
